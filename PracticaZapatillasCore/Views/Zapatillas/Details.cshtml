@@ -20,7 +20,7 @@
 @section Scripts {
     <script>
         $(document).ready(function(){
-            $("#containerImagenes").load("/Zapatillas/_ImagenesPartial?idprod=" + @Model.IdProducto;
+            $("#containerImagenes").load("/Zapatillas/_ImagenesPartial?idprod=" + @Html.Raw(@Model.IdProducto));
         })
     </script>
 }
