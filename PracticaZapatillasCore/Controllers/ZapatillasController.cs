@@ -19,9 +19,10 @@ namespace PracticaZapatillasCore.Controllers
             return View(zapatillas);
         }
 
-        public async Task<IActionResult> Details(int idprod)
+        public async Task<IActionResult> Details(int idprod, int pos = 1)
         {
             Zapatilla zapa = await this.repo.FindZapatillaAsync(idprod);
+            ViewBag.PosicionActual = pos;
             return View(zapa);
         }
 
