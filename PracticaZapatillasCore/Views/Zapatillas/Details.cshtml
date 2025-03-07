@@ -1,0 +1,26 @@
+﻿@model Zapatilla
+
+<h1>Detalles zapatilla</h1>
+
+<div class="card my-2">
+    <div class="card-header">
+        <strong>Nombre:</strong> @Model.Nombre
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Model.Descripcion</p>
+        <div id="containerImagenes"></div>
+    </div>
+    <div class="card-footer text-body-secondary">
+		<strong>Precio:</strong> @Model.Precio
+    </div>
+</div>
+
+<a asp-controller="Zapatillas" asp-action="Index">Volver a Index</a>
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            $("#containerImagenes").load("/Zapatillas/_ImagenesPartial?idprod=" + @Model.IdProducto;
+        })
+    </script>
+}

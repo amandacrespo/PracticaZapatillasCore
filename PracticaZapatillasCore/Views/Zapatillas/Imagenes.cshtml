@@ -1,0 +1,47 @@
+﻿@model ImagenDTO
+
+@{
+    int primera = 1;
+    int ultima = Model.NroRegistros;
+    int anterior = ViewBag.PosicionActual == primera ? primera : ViewBag.PosicionActual - 1;
+    int siguiente = ViewBag.PosicionActual == ultima ? ultima : ViewBag.PosicionActual + 1;
+}
+
+<h2>Imagen @ViewBag.PosicionActual de @ultima</h2>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination my-2">
+        <li class="page-item">
+            <a class="page-link"
+               asp-controller="Zapatillas"
+               asp-action="Imagenes"
+               asp-route-idprod="@Model.Imagen.IdProducto"
+               asp-route-pos="@primera">Primera</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link"
+               asp-controller="Zapatillas"
+               asp-action="Imagenes"
+               asp-route-idprod="@Model.Imagen.IdProducto"
+               asp-route-pos="@anterior">Anterior</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link"
+               asp-controller="Zapatillas"
+               asp-action="Imagenes"
+               asp-route-idprod="@Model.Imagen.IdProducto"
+               asp-route-pos="@siguiente">Siguiente</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link"
+               asp-controller="Zapatillas"
+               asp-action="Imagenes"
+               asp-route-idprod="@Model.Imagen.IdProducto"
+               asp-route-pos="@ultima">Ultima</a>
+        </li>
+    </ul>
+</nav>
+
+<img src="@Model.Imagen.Imagen" width="200" />
+
+<a asp-controller="Zapatillas" asp-action="Index">Volver a Index</a>
